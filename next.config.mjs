@@ -12,6 +12,9 @@ try {
 }
 
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
+const repoName = 'your-repo-name'; // 🔁 replace with your actual GitHub repo name
+
 const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
@@ -22,6 +25,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  trailingSlash: true, // 🔁 important for GitHub Pages routing
+  assetPrefix: isProd ? `/${repoName}/` : '', // 🔁 important for correct asset paths
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
@@ -30,7 +35,6 @@ const nextConfig = {
 }
 
 if (userConfig) {
-  // ESM imports will have a "default" property
   const config = userConfig.default || userConfig
 
   for (const key in config) {
