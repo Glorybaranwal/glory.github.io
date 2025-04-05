@@ -1,14 +1,9 @@
 {
   "name": "Portfolio",
-  "homepage": "https://your-username.github.io/your-repo-name",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "lint": "next lint",
-    "start": "react-scripts start",
     "build": "next build",
-    "export": "next export",
     "deploy": "gh-pages -d out"
   },
   "dependencies": {
